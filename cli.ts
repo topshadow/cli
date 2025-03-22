@@ -1,4 +1,4 @@
-import { parseArgs } from "jsr:@std/cli/parse-args";
+import { parseArgs } from "jsr:@std/cli@1.0.14";
 import {
   doc,
   DocNode,
@@ -7,10 +7,10 @@ import {
   JsDocTagNamedTyped,
   JsDocTagParam,
 } from "jsr:@deno/doc@0.169.1";
-import { cli } from "jsr:@kazupon/gunshi";
-import type { ArgOptions } from "jsr:@kazupon/gunshi";
+import { cli } from "jsr:@kazupon/gunshi@0.8.0";
+import type { ArgOptions, Command } from "jsr:@kazupon/gunshi@0.8.0";
 
-import { resolve } from "jsr:@std/path";
+import { resolve } from "jsr:@std/path@1.0.8";
 let args = parseArgs(Deno.args);
 // console.log(args);
 let filename: string = args._[0] as string;

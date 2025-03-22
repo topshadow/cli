@@ -69,5 +69,3 @@ cli jsr:@std/path dirname --help
 - [ ] 输出格式 json ,xml,jsonl,
 - [ ] logtap类日志库的约束输出
 - [ ] 更好的配合nushell使用
-
-
