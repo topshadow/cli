@@ -1,5 +1,12 @@
 # 通过jsdoc 为文件或者模块 生成cli 并调用cli
 
+
+
+# 安装
+```shell
+deno install -A -g --name  cli jsr:@24wings/cli/cli.ts
+
+
 例如 你的代码
 ```typescript
 // my_hello.ts

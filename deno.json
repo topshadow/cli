@@ -1,7 +1,7 @@
 {
   "name": "@24wings/cli",
   "version": "0.1.0",
-  "exports": "./mod.ts",
+  "exports": { "mod.ts": "./mod.ts", "cli.ts": "./cli.ts" },
   "tasks": {
     "dev": "deno test --watch"
   },
