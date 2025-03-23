@@ -8,6 +8,7 @@
 # 安装
 ```shell
 deno install -A -g --name  cli jsr:@24wings/cli/cli.ts
+```
 
 
 例如 你的代码

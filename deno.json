@@ -1,7 +1,8 @@
 {
   "name": "@24wings/cli",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "exports": { "./mod.ts": "./mod.ts", "./cli.ts": "./cli.ts" },
   
-  "license": "MIT"
+  "license": "MIT",
+  
 }
