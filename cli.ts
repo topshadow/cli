@@ -62,9 +62,14 @@ function functionNode2Log(func: DocNodeFunction): Command<any> {
 
     description: func.jsDoc?.doc,
     run: async (ctx) => {
-      // console.log(func.name);
-      const mod = await import(filename);
+      // console.log(fun);
+
+      const mod = filename.startsWith("jsr:")
+        ? await import(filename)
+        : await import(`file://${resolve(Deno.cwd(), filename)}`);
       // console.log(ctx.values);
+      // let u = `file://${resolve(Deno.cwd, filename)}`;
+      // console.log(u);
       const ps = func.functionDef.params.map((p) => ctx.values[p.name]);
       // console.log("ps values:", ps);
       const callFunc = mod[func.name];
