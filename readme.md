@@ -73,3 +73,6 @@ cli jsr:@std/path dirname --help
 - [ ] 输出格式 json ,xml,jsonl,
 - [ ] logtap类日志库的约束输出
 - [ ] 更好的配合nushell使用
+- [ ] 交互式shell
+- [ ] 自动化简略参数
+- [ ] 包模式,将整个包或者目录下的模块(mod.ts)作为交互式app使用
