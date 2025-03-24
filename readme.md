@@ -68,7 +68,7 @@ cli jsr:@std/path dirname --help
 通过deno doc --json 转换为文档对象 并转换为 `gunshi`的cli参数
 
 # 待新增的特性
-- [ ] 可选参数与cli 可选参数映射
+- [x] 可选参数与cli 可选参数映射
 - [ ] 支持参数复杂对象
 - [ ] 输出格式 json ,xml,jsonl,
 - [ ] logtap类日志库的约束输出
