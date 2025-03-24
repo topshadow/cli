@@ -1,78 +1,89 @@
-> 0行代码制作命令行程序
+
+### **Zero-Code CLI Tool (or Interactive Shell) Creation**  
+# Generate and Invoke CLI from Files/Modules via JSDoc  
 
 
-# 通过jsdoc 为文件或者模块 生成cli 并调用cli
+
+English | [简体中文](./readme_zh.md)
+### **Installation**  
+
+deno install -A -g --name cli jsr:@24wings/cli/cli.ts
 
 
-
-# 安装
-```shell
-deno install -A -g --name  cli jsr:@24wings/cli/cli.ts
-```
+---
 
 
-例如 你的代码
-```typescript
+### **Example**  
+Your code (`my_hello.ts`):  
+
 // my_hello.ts
-
+```typescript
 /**
-@param name  you can set the name you use
+@param name  You can set the name you use.
 */
-export function hello(name:string){
-    return {msg:`hello ${name}`}
+export function hello(name: string) {
+  return { msg: `hello ${name}` };
 }
 
 /**
-@param name  you can set the name you use2
+@param name  You can set the name you use (variant 2).
 */
-export function hello2(name:string){
-    return {msg:`hello ${name}`}
+export function hello2(name: string) {
+  return { msg: `hello ${name}` };
 }
-
-
+  
+**Note**: `@param name` is optional. If included, it becomes the parameter documentation (and CLI argument help text).  
 ```
-其中`@param name` 不是必须的,如果编写则会变成参数的文档 也是命令行的参数的文档
-你可以直接以命令行的形式运行
+---
 
-```nushell
-
-cli  ./my-hello.ts  --help
+### **Usage**  
+#### **1. Run as CLI**  
+```cmd
+cli ./my-hello.ts --help
 ```
-![](./hello.jpeg)
+# Or launch interactive shell mode:
+```cmd
+cli ./my-hello.ts --shell --log
+```
+![hello.jpeg](./hello.jpeg)  
+Lists all functions in the module as subcommands.  
 
-会列出模块中的所有函数作为子命令
-
-也可以执行子命令查看文档
-```nushell
+#### **2. View Subcommand Help**  
+```cmd
 cli ./my-hello.ts hello --help
-
 ```
-![](./hello-help.jpeg)
+![hello-help.jpeg](./hello-help.jpeg)  
 
-
--log 是生成的内置命令,用于打印函数的结果
-```nushell
-  cli ./my-hello.ts hello --name zhangsan -log
+#### **3. Execute with Logging (`-log`)**  
+`-log` is a built-in flag to print function results:  
+```cmd
+cli ./my-hello.ts hello --name zhangsan -log
 ```
-![](./hello-exec-result.jpeg)
+![hello-exec-result.jpeg](./hello-exec-result.jpeg)  
 
-```nushell
+#### **4. Use with JSR Modules**  
+```cmd
 cli jsr:@std/path dirname --help
 ```
-![](./jsr-help.jpeg)
+![jsr-help.jpeg](./jsr-help.jpeg)  
 
+---
 
+### **How It Works**  
+Converts module documentation (via `deno doc --json`) into CLI arguments using `gunshi`.  
 
+---
 
-# 原理
-通过deno doc --json 转换为文档对象 并转换为 `gunshi`的cli参数
+### **Planned Features**  
+- [x] Map optional parameters to CLI flags.  
+- [ ] Support complex object parameters.  
+- [ ] Output formats: JSON, XML, JSONL.  
+- [ ] Structured logging (e.g., `logtap`-style).  
+- [ ] Better integration with NuShell.  
+- [x] Interactive shell mode.  
+- [x] Auto-generated shorthand flags.  
+- [ ]  load more modules ,complex ui  (app mode)
 
-# 待新增的特性
-- [x] 可选参数与cli 可选参数映射
-- [ ] 支持参数复杂对象
-- [ ] 输出格式 json ,xml,jsonl,
-- [ ] logtap类日志库的约束输出
-- [ ] 更好的配合nushell使用
-- [ ] 交互式shell
-- [ ] 自动化简略参数
-- [ ] 包模式,将整个包或者目录下的模块(mod.ts)作为交互式app使用
+--- 
+
+Let me know if you'd like any refinements!

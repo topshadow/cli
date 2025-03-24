@@ -1,6 +1,1 @@
-/**
-test add function
-*/
-export function add(a: number, b: number): number {
-  return a + b;
-}
+export { main, makeCli, makeInteractiveShell } from "./cli.ts";
